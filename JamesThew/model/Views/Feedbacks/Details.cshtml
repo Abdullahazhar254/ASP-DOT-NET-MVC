@@ -1,0 +1,53 @@
+﻿@model model.Feedback
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <br />
+    <br />
+    <br />
+
+    <pre class="block-title col-lg-offset-5" style="background:none;border:none">         Feedback</pre><br />
+    <dl class="dl-horizontal">
+
+        <dt class="block-title" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:25px">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:25px">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:25px">
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-lg-offset-6" style="width:100px">
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+</div>
+	<div class="col-lg-1">
+		@Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+	
+	</div>
+ <br />
+ <br />
+ <br />

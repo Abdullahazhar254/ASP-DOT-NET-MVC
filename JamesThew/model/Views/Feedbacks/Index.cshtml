@@ -1,0 +1,56 @@
+﻿@model IEnumerable<model.Feedback>
+
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<p class="col-lg-2">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+</p>
+<pre class="block-title col-lg-offset-4" style="background:none;border:none">     Feedback</pre><br />
+<table class="table">
+
+    <tr>
+        <th class="block-title" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th class="block-title" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th class="block-title" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.comment)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="block-title" style="font-size:22px">
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td class="block-title" style="font-size:22px">
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td class="block-title" style="font-size:22px">
+                @Html.DisplayFor(modelItem => item.comment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+                <br />
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+                <br />
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+            </td>
+        </tr>
+    }
+
+</table>

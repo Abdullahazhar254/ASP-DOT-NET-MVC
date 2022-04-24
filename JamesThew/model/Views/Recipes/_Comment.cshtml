@@ -1,0 +1,26 @@
+﻿@model IEnumerable<model.Feedback_Recipe>
+
+
+
+<pre class="block-title col-lg-offset-6" style="background:none;border:none">
+    Comment</pre>
+<table class="table">
+ 
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
+            </td>
+            
+        </tr>
+    }
+
+</table>

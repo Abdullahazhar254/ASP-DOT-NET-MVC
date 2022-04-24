@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Winner_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Contest__Winner___36B12243" FromRole="Contest" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Feedback_Recipe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Recipe_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Feedback" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Recipe" Relationship="Self.FK__Feedback___Recip__412EB0B6" FromRole="Feedback_Recipe" ToRole="Recipe" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Feedback___User___4222D4EF" FromRole="Feedback_Recipe" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Feedback_Tips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Tip_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Feedback" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tip" Relationship="Self.FK__Feedback___Tip_I__49C3F6B7" FromRole="Feedback_Tips" ToRole="Tips" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Feedback___User___4AB81AF0" FromRole="Feedback_Tips" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Recipe_Id" />
+    </Key>
+    <Property Name="Recipe_Id" Type="Int32" Nullable="false" />
+    <Property Name="Recipe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Label" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Posted_by" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Feedback_Recipe" Relationship="Self.FK__Feedback___Recip__412EB0B6" FromRole="Recipe" ToRole="Feedback_Recipe" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Recipe__Label__398D8EEE" FromRole="Recipe" ToRole="Roles" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Recipe__Posted_b__3A81B327" FromRole="Recipe" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Recipes" Relationship="Self.FK__Recipe__Label__398D8EEE" FromRole="Roles" ToRole="Recipe" />
+    <NavigationProperty Name="Tips" Relationship="Self.FK__Tips__Label__3D5E1FD2" FromRole="Roles" ToRole="Tips" />
+    <NavigationProperty Name="Users" Relationship="Self.UserRoles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Tip">
+    <Key>
+      <PropertyRef Name="Tips_Id" />
+    </Key>
+    <Property Name="Tips_Id" Type="Int32" Nullable="false" />
+    <Property Name="Tips_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Label" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Posted_by" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Feedback_Tips" Relationship="Self.FK__Feedback___Tip_I__49C3F6B7" FromRole="Tips" ToRole="Feedback_Tips" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Tips__Label__3D5E1FD2" FromRole="Tips" ToRole="Roles" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Tips__Posted_by__3E52440B" FromRole="Tips" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="UserClaims" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserLogins_dbo_Users_UserId" FromRole="UserLogins" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Contests" Relationship="Self.FK__Contest__Winner___36B12243" FromRole="Users" ToRole="Contest" />
+    <NavigationProperty Name="Feedback_Recipe" Relationship="Self.FK__Feedback___User___4222D4EF" FromRole="Users" ToRole="Feedback_Recipe" />
+    <NavigationProperty Name="Feedback_Tips" Relationship="Self.FK__Feedback___User___4AB81AF0" FromRole="Users" ToRole="Feedback_Tips" />
+    <NavigationProperty Name="Recipes" Relationship="Self.FK__Recipe__Posted_b__3A81B327" FromRole="Users" ToRole="Recipe" />
+    <NavigationProperty Name="Tips" Relationship="Self.FK__Tips__Posted_by__3E52440B" FromRole="Users" ToRole="Tips" />
+    <NavigationProperty Name="UserClaims" Relationship="Self.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="Users" ToRole="UserClaims" />
+    <NavigationProperty Name="UserLogins" Relationship="Self.FK_dbo_UserLogins_dbo_Users_UserId" FromRole="Users" ToRole="UserLogins" />
+    <NavigationProperty Name="Roles" Relationship="Self.UserRoles" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK__Contest__Winner___36B12243">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Contest" Type="Self.Contest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contest">
+        <PropertyRef Name="Winner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback___Recip__412EB0B6">
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+    <End Role="Feedback_Recipe" Type="Self.Feedback_Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="Recipe_Id" />
+      </Principal>
+      <Dependent Role="Feedback_Recipe">
+        <PropertyRef Name="Recipe_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback___User___4222D4EF">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Feedback_Recipe" Type="Self.Feedback_Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback_Recipe">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback___Tip_I__49C3F6B7">
+    <End Role="Tips" Type="Self.Tip" Multiplicity="1" />
+    <End Role="Feedback_Tips" Type="Self.Feedback_Tips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tips">
+        <PropertyRef Name="Tips_Id" />
+      </Principal>
+      <Dependent Role="Feedback_Tips">
+        <PropertyRef Name="Tip_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback___User___4AB81AF0">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Feedback_Tips" Type="Self.Feedback_Tips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback_Tips">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__Label__398D8EEE">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="Label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__Posted_b__3A81B327">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="Posted_by" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tips__Label__3D5E1FD2">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Tips" Type="Self.Tip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tips">
+        <PropertyRef Name="Label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tips__Posted_by__3E52440B">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Tips" Type="Self.Tip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tips">
+        <PropertyRef Name="Posted_by" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserClaims_dbo_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserClaims" Type="Self.UserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserLogins_dbo_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserLogins" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Contests" EntityType="Self.Contest" />
+    <EntitySet Name="Feedback_Recipe" EntityType="Self.Feedback_Recipe" />
+    <EntitySet Name="Feedback_Tips" EntityType="Self.Feedback_Tips" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Tips" EntityType="Self.Tip" />
+    <EntitySet Name="UserClaims" EntityType="Self.UserClaim" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Contest__Winner___36B12243" Association="Self.FK__Contest__Winner___36B12243">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Contest" EntitySet="Contests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback___Recip__412EB0B6" Association="Self.FK__Feedback___Recip__412EB0B6">
+      <End Role="Recipe" EntitySet="Recipes" />
+      <End Role="Feedback_Recipe" EntitySet="Feedback_Recipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback___User___4222D4EF" Association="Self.FK__Feedback___User___4222D4EF">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Feedback_Recipe" EntitySet="Feedback_Recipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback___Tip_I__49C3F6B7" Association="Self.FK__Feedback___Tip_I__49C3F6B7">
+      <End Role="Tips" EntitySet="Tips" />
+      <End Role="Feedback_Tips" EntitySet="Feedback_Tips" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback___User___4AB81AF0" Association="Self.FK__Feedback___User___4AB81AF0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Feedback_Tips" EntitySet="Feedback_Tips" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__Label__398D8EEE" Association="Self.FK__Recipe__Label__398D8EEE">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Recipe" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__Posted_b__3A81B327" Association="Self.FK__Recipe__Posted_b__3A81B327">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Recipe" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tips__Label__3D5E1FD2" Association="Self.FK__Tips__Label__3D5E1FD2">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Tips" EntitySet="Tips" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tips__Posted_by__3E52440B" Association="Self.FK__Tips__Posted_by__3E52440B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Tips" EntitySet="Tips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserClaims_dbo_Users_UserId" Association="Self.FK_dbo_UserClaims_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserClaims" EntitySet="UserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserLogins_dbo_Users_UserId" Association="Self.FK_dbo_UserLogins_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserLogins" EntitySet="UserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoles" Association="Self.UserRoles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

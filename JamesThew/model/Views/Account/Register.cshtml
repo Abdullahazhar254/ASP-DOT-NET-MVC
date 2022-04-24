@@ -1,0 +1,91 @@
+﻿@model model.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<pre class="block-title col-lg-offset-4" style="background:none;border:none">         @ViewBag.Title</pre>
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+<pre class="block-title col-lg-offset-5"  style="background:none;border:none;font-size:30px">@ViewBag.sub</pre>
+   
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+<div class="form-group">
+        
+<div class="contact1-pic js-tilt col-lg-offset-1" data-tilt style="position:absolute">
+<br />
+
+
+
+<br />
+
+
+
+<img src="~/Content/images/jamesthewIconw.png" alt="IMG" style="margin-top:-50px">
+
+
+
+        </div>
+
+<div class="contact1-pic js-tilt col-lg-offset-8" data-tilt style="position:absolute">
+<br />
+
+
+
+<br />
+
+
+
+<img src="~/Content/images/jamesthewIconw.png" alt="IMG" style="margin-top:-50px">
+
+
+
+        </div>
+
+<div class="col-md-6 col-lg-offset-3">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label", style = "color:grey;font-size:16px" })
+
+            @Html.TextBoxFor(m => m.Email, new { @class = "input1", placeholder = "Enter Your Email" })
+<span class="shadow-input1" style="width:45%;margin-left:25%"></span>
+        </div>
+    </div>
+<div class="form-group">
+<div class="col-md-6 col-lg-offset-3">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label", style = "color:grey;font-size:16px" })
+
+            @Html.PasswordFor(m => m.Password, new { @class = "input1", placeholder = "Enter Your Password" })
+<span class="shadow-input1" style="width:45%;margin-left:25%"></span>
+        </div>
+    </div>
+<div class="form-group">
+<div class="col-md-6 col-lg-offset-3">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label", style = "color:grey;font-size:16px" })
+
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input1", placeholder = "Enter Your Password Again" })
+<span class="shadow-input1" style="width:45%;margin-left:25%"></span>
+        </div>
+    </div>
+<div class="form-group">
+<div class="col-md-5 col-lg-offset-4">
+<input style="width:400px;margin-left:50px" type="submit" class="container-contact1-form-btn contact1-form-btn" value="Register" />
+
+
+
+        </div>
+    </div>
+}
+<br />
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

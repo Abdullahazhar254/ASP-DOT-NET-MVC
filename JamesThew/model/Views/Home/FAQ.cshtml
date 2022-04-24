@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $("#q1").click(function () {
+                $("#a1").toggle();
+            });
+        });
+    $(document).ready(function () {
+        $("#q2").click(function () {
+            $("#a2").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#q3").click(function () {
+            $("#a3").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#q4").click(function () {
+            $("#a4").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#q5").click(function () {
+            $("#a5").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#q6").click(function () {
+            $("#a6").toggle();
+        });
+    });
+
+</script>
+
+<div class="block-title">
+    <p style="text-align:center">FAQ</p>
+    <p id="q1" style="font-size:30px;cursor:pointer"> •    Will there be any subscription charges ?</p>
+    <p id="a1" style="color:white;font-size:20px;display:none">Yes, there are three different subscriptions available on our website.</p>
+    <p id="q2" style="font-size:30px;cursor:pointer"> •    How to view the recipes and tips? Will there be any charges for that ?</p>
+    <p id="a2" style="color:white;font-size:20px;display:none">You can view recipes and tips of each by going to their pages,No there won't be any charges for them.</p>
+    <p id="q3" style="font-size:30px;cursor:pointer"> •    I am not the registered member of the site. Can I participate in the contest held ?</p>
+    <p id="a3" style="color:white;font-size:20px;display:none">No, you can not participate in our contest without being registered</p>
+    <p id="q4" style="font-size:30px;cursor:pointer"> •    How to upload or post the recipes and tips ?</p>
+    <p id="a4" style="color:white;font-size:20px;display:none">You may upload or post the recipes and tips on the recipes page by clicking on upload recipe and as well as for tips.</p>
+    <p id="q5" style="font-size:30px;cursor:pointer"> •    How to post a feedback ?</p>
+    <p id="a5" style="color:white;font-size:20px;display:none">You can post a feedback by going to feedback page on our website</p>
+    <p id="q6" style="font-size:30px;cursor:pointer"> •    I have posted a recipe or a tip with respect to the contest. How can I know who is the winner ?</p>
+    <p id="a6" style="color:white;font-size:20px;display:none">You can get to know who is the winner by going to the announcement page it's super easy.</p>
+</div>

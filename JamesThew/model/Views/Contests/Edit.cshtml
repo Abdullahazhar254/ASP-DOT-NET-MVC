@@ -1,0 +1,104 @@
+﻿@model model.Contest
+
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<div class="contact1-pic js-tilt col-lg-offset-1" data-tilt style="position:absolute">
+    <br />
+    <br />
+
+    <br /><br /><br />
+    <br />
+    <img src="~/Content/images/gallery_07.jpg" alt="IMG" style="width:800px;height:320px">
+</div>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <pre class="block-title col-lg-offset-4" style="background:none;border:none">
+    Contest</pre><br />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "input1", placeholder = "Insert an Image" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input1", placeholder = "Enter Contest Name" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "input1", placeholder = "Enter Description" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Starting_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Starting_Date, new { htmlAttributes = new { @class = "input1", placeholder = "Enter Start Date" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Starting_Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Ending_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Ending_Date, new { htmlAttributes = new { @class = "input1", placeholder = "Enter End Date" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Ending_Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6 col-lg-offset-5">
+            @Html.LabelFor(model => model.Winner_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Winner_Id, new { htmlAttributes = new { @class = "input1", placeholder = "Enter Winner Id" } })
+            <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+            @Html.ValidationMessageFor(model => model.Winner_Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-6 col-md-10">
+            <input style="width:290px" type="submit" value="Save" class="container-contact1-form-btn contact1-form-btn" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="col-lg-1" >
+	@Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+</div>
+<br />
+<br />
+<br />

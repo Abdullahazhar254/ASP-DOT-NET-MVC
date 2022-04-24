@@ -1,0 +1,62 @@
+﻿@model IEnumerable<model.Tip>
+
+@{
+    ViewBag.Title = "Tips";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<pre class="block-title col-lg-offset-5" style="background:none;border:none">
+  Tips</pre>
+<div class="col-lg-1">
+    @if (User.IsInRole("admin") || User.IsInRole("yearly") || User.IsInRole("monthly") || User.IsInRole("halfyearly"))
+    {
+        @Html.ActionLink("Add Tips", "Create", "", new { @class = "container-contact1-form-btn contact1-form-btn" })<br />
+    }
+</div>
+
+<table class="table">
+    <tr>
+        
+            <th class="block-title" style="font-size:25px;text-align:center">
+                @Html.DisplayNameFor(model => model.Tips_Name)
+            </th>
+            <th class="block-title text-center" style="font-size:20px">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            
+            <th class="block-title text-center" style="font-size:20px">
+                @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            </th>
+            <th></th>
+         
+</tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(modelItem => item.Tips_Name)
+        </td>
+        <td class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        
+        <td class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Tips_Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })<br />
+                @Html.ActionLink("Delete", "Delete", new { id = item.Tips_Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

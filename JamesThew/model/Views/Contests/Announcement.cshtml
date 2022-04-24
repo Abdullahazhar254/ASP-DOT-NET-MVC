@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Announcement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="menu" class="menu-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <pre class="block-title text-center" style="background:none;border:none">Announcement</pre>
+                <table class="table">
+                    <tr>
+                        <th class="block-title text-center" style="font-size:20px">Contest Name</th>
+                        <th class="block-title text-center" style="font-size:20px">Winner Email</th>
+                    </tr>
+                    <tr>
+                        <td class="block-title text-center">
+                            @foreach (string item in ViewBag.CName)
+                            {
+                                <h1 style="color:white">@item</h1>
+
+                            }
+                        </td>
+                        <td class="block-title text-center">
+                            @foreach (string item in ViewBag.WName)
+                            {
+                                <h1 style="color:white">@item</h1>
+
+                            }
+                        <td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

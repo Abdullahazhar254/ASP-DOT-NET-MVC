@@ -1,0 +1,62 @@
+﻿@model IEnumerable<model.Participant>
+
+@{
+    ViewBag.Title = "Participate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="col-lg-1">
+    @Html.ActionLink("Create New", "CreateP", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+</div>
+<br />
+
+<pre class="block-title col-lg-offset-4" style="background:none;border:none">
+    Participants</pre><br />
+<table class="table">
+    <tr>
+        <th class="block-title" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.User_Name)
+        </th>
+        <th class="block-title" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th class="block-title" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th class="block-title" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="block-title" style="font-size:20px">
+                @Html.DisplayFor(modelItem => item.User_Name)
+            </td>
+            <td class="block-title" style="font-size:20px">
+                @Html.DisplayFor(modelItem => item.Ingredients)
+            </td>
+            <td class="block-title" style="font-size:20px">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="block-title" style="font-size:20px">
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Winner", "Announced", "Contests", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" }) <br />
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" }) <br />
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" }) <br />
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,70 @@
+﻿@model model.Contest
+
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+<div>
+    <pre class="block-title col-lg-offset-5" style="background:none;border:none">
+       Contest</pre><br />
+    <dl class="dl-horizontal">
+
+        <dd>
+        <dd class="offer-item">
+            <img class="col-lg-8 col-lg-offset-4 img-responsive" style="height:190px; width:350px;" src="@Url.Content(Model.Image)" />
+        </dd>
+
+
+
+
+        <dd class="block-title text-center">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:25px">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.Starting_Date)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(model => model.Starting_Date)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.Ending_Date)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(model => model.Ending_Date)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.Winner_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Winner_Id)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-lg-offset-6" style="width:100px"> 
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })</div>
+<div class="col-lg-1">
+	@Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+</div>
+<br />
+<br />
+<br />

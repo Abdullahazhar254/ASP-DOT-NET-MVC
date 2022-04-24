@@ -1,0 +1,65 @@
+﻿@model model.Participant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.User_Name)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(model => model.User_Name)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:18px">
+            @Html.DisplayFor(model => model.Ingredients)
+        </dd>
+
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:18px">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="block-title text-center" style="font-size:20px">
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd class="block-title text-center" style="font-size:20px">
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+
+
+
+
+    </dl>
+</div>
+<div class="col-lg-offset-6" style="width:100px">
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "container-contact1-form-btn contact1-form-btn" })
+</div>
+<div class="col-lg-1">
+	@Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+
+</div>
+<br />
+<br />
+<br />

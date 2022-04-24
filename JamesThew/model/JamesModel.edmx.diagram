@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7666e010aebe476ca03a999a390a0b92" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="DefaultConnectionModel.AspNetRole" Width="1.5" PointX="2.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.AspNetUserClaim" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.AspNetUserLogin" Width="1.5" PointX="12" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.AspNetUser" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Feedback_Tips" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Recipe" Width="1.5" PointX="5.125" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Tip" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Recipe__Label__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Tips__Label__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Feedback___User___45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Recipe__Posted_b__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Tips__Posted_by__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Feedback___Tip_I__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DefaultConnectionModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Contest" Width="1.5" PointX="13" PointY="7" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Participant" Width="1.5" PointX="10.5" PointY="7" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Participa__User___3D2915A8" />
+        <AssociationConnector Association="DefaultConnectionModel.FK__Participa__Conte__3C34F16F" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Feedback" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DefaultConnectionModel.Feedback_Recipe" Width="1.5" PointX="2.5" PointY="10.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

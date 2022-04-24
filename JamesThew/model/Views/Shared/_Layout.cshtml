@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dashboard").show();
+        });
+
+
+
+    </script>
+
+    <!-- Basic -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+    <!-- Site Metas -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Styling/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Styling/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Styling/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Styling/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Styling/css/main.css">
+    <!--===============================================================================================-->
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/Content/images/jamesthewicon1.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    
+    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="~/Content/css/colors/orange.css" />
+    <!-- Modernizer -->
+    <script src="~/Content/js/modernizer.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background-image: url('../../Content/images/Bg.png');margin-top:-50px">
+
+    <div id="loader">
+        <div id="status"></div>
+    </div>
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo" style="margin-left:-100px">
+                                    <!-- nav logo -->
+
+                                    
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="@Url.Action("Index","Home")">
+                                        <img src="~/Content/images/jamesThew11.png" height="90" width="150" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+
+                                    <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
+                                    <li><a href="@Url.Action("Index","Recipes")">Recipes</a></li>
+                                    <li><a href="@Url.Action("Index","Tips")">Tips</a></li>
+                                    <li><a href="@Url.Action("Index","Contests")">Contests</a></li>
+                                    <li><a href="@Url.Action("Announcement","Contests")">Announcements</a></li>
+                                    @if (!User.IsInRole("admin"))
+                                    {
+                                    <li><a href="@Url.Action("Create", "Feedbacks")">FeedBack</a></li>
+                                    <li><a href="@Url.Action("FAQ", "Home")">FAQ's</a></li>
+                                    }
+                                    else
+                                    { <li><a href="@Url.Action("Index", "Feedbacks")">FeedBack</a></li>}
+                                </ul>
+                                @Html.Partial("_LoginPartial")
+
+                                
+
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+
+
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+
+    </div>
+    <!-- end site-header -->
+
+
+    @RenderBody()
+
+    <div id="footer" class="footer-main">
+
+        <div class="footer-box pad-top-70">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="footer-in-main">
+
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <!-- footer logo -->
+                                <img src="~/Content/images/jamesthew.png" alt="" height="200" width="250" />
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>James Thew is one of the famous cook working in one of the five star hotels in the city.</p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="https://www.facebook.com">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.plus.google.com">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pinterest.com">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+
+
+
+                            <!-- end footer-box-b -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>6 E Esplanade, St Albans VIC 3021, Australia</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+                                        +91 80005 89080
+                                    </span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>support@JamesThew.com</span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; 2019 <a href="@Url.Action("Index","Home")" target="_blank">James Thew</a> </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <!-- ALL JS FILES -->
+    <script src="~/Content/js/all.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/modernizer.js"></script>
+
+
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Styling/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Styling/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/Styling/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Styling/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Styling/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

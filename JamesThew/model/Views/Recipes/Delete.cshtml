@@ -1,0 +1,34 @@
+﻿@model model.Recipe
+
+@{
+	ViewBag.Title = "Delete";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<p class="block-title col-lg-7 col-lg-offset-4" style="font-size:30px">Are you sure you want to delete this?</p>
+<div>
+	<br />
+	<br />
+	<br />
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color col-lg-1 col-lg-offset-5">
+			<input type="submit" value="Delete" class="container-contact1-form-btn contact1-form-btn" />
+			<br />
+			@Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+		</div>
+	}
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

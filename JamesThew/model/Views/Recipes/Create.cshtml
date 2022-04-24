@@ -1,0 +1,111 @@
+﻿@model model.Recipe
+
+@{
+    ViewBag.Title = "Add a Recipe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<div class="contact1-pic js-tilt col-lg-offset-1" data-tilt style="position:absolute">
+    <br />
+    <br /><br />
+    <br /><br />
+    <br />
+
+    <img src="~/Content/images/gallery_02.jpg" alt="IMG" style="width:800px;height:320px">
+</div>
+
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <pre class="block-title col-lg-offset-4" style="background:none;border:none">
+    Recipe</pre><br />
+        <div class="form-horizontal">
+          
+
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+           
+            <div class="form-group">
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Recipe_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.EditorFor(model => model.Recipe_Name, new { htmlAttributes = new { @class = "input1", placeholder = "Enter Recipe Name" } })
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Recipe_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Ingredients, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.TextAreaFor(model => model.Ingredients, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Ingredients, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+
+
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2", style = "color:grey;font-size:16px" })
+                    <input name="Image" type="file" />
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Label, "Label", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.DropDownList("Label", null, htmlAttributes: new { @class = "form-control", style = "border-radius:20px" })
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Label, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-lg-offset-5">
+                    @Html.LabelFor(model => model.Posted_by, "Posted_by", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.DropDownList("Posted_by", null, htmlAttributes: new { @class = "form-control", style = "border-radius:20px" })
+                    <span class="shadow-input1" style="width:45%;margin-left:16%"></span>
+                    @Html.ValidationMessageFor(model => model.Posted_by, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+
+            <div class="col-md-offset-8">
+
+                <input style="font-size:20px" type="submit" value="Create" class="container-contact1-form-btn contact1-form-btn fa fa-long-arrow-right" />
+            </div>
+
+        </div>
+    }
+
+    <div class="col-lg-1">
+        @Html.ActionLink("Back to List", "Index", "", new { @class = "container-contact1-form-btn contact1-form-btn" })
+    </div>
+</div>
+<br />
+<br />
+<br />
